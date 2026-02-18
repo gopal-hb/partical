@@ -14,6 +14,32 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         //
     })
-    ->withExceptions(function (Exceptions $exceptions): void {
-        //
-    })->create();
+    ->withExceptions(function ($exceptions) {
+
+    $exceptions->render(function (
+        \Illuminate\Auth\AuthenticationException $e,
+        $request
+    ) {
+
+        if ($request->is('api/*')) {
+
+            return response()->json([
+                'message' => 'Unauthenticated.'
+            ], 401);
+
+        }
+
+    });
+
+})->booted(function () {
+
+        RateLimiter::for('api', function (Request $request) {
+
+            return Limit::perMinute(60)->by(
+                $request->user()?->id ?: $request->ip()
+            );
+
+        });
+
+    })
+    ->create();

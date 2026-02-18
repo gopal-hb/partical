@@ -26,14 +26,22 @@ class PostController extends Controller
 
     public function index()
     {
-        if ($this->repository->count() == 0) {
 
-            $this->service->syncPosts();
-        }
+          if ($this->repository->count() == 0) {
 
-        $posts = $this->repository->getPaginated(10);
+            if (!Cache::has('posts_last_sync')) {
+        // Dispatch background job
+        SyncPostsJob::dispatch();
+            }
+        return response()->json([
+            'message' => 'Data is syncing, please try again shortly.'
+        ], 202);
+    }
 
-        return PostResource::collection($posts);
+    $posts = $this->repository->getPaginated(10);
+
+    return PostResource::collection($posts);
+      
     }
 
     public function show($id)

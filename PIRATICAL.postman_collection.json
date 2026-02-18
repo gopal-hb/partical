@@ -1,0 +1,157 @@
+{
+  "info": {
+    "_postman_id": "b6e8855a-6874-40b4-80c2-fc9d242728e9",
+    "name": "PIRATICAL",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46766066",
+    "_collection_link": "https://go.postman.co/collection/46766066-b6e8855a-6874-40b4-80c2-fc9d242728e9?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "email",
+              "value": "admin@example.com",
+              "type": "text",
+              "uuid": "10bd3da7-3fd4-49c2-9b9f-6ea365950d15"
+            },
+            {
+              "key": "password",
+              "value": "password123",
+              "type": "text",
+              "uuid": "b5e8d5b1-674d-44bd-ba3a-8edb7f7bce77"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/login",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "email",
+              "value": "gopalkeshri.dev@gmail.com",
+              "type": "text",
+              "uuid": "10bd3da7-3fd4-49c2-9b9f-6ea365950d15"
+            },
+            {
+              "key": "password",
+              "value": "123456",
+              "type": "text",
+              "uuid": "b5e8d5b1-674d-44bd-ba3a-8edb7f7bce77"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/login",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post details",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "1|Wg1ZYuIKgqJMsBF1AFnnE83k25OTExXuoMnE1Giv77d03178",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "email",
+              "value": "gopalkeshri.dev@gmail.com",
+              "type": "text",
+              "uuid": "10bd3da7-3fd4-49c2-9b9f-6ea365950d15"
+            },
+            {
+              "key": "password",
+              "value": "123456",
+              "type": "text",
+              "uuid": "b5e8d5b1-674d-44bd-ba3a-8edb7f7bce77"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/v1/posts/1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "v1",
+            "posts",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Sync Posts",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}
