@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use App\Services\ExternalPostService;
 use App\Repositories\PostRepository;
 use App\Http\Resources\PostResource;
+use App\Jobs\SyncPostsJob;
 
 class PostController extends Controller
 {
